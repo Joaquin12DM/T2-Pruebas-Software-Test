@@ -51,7 +51,6 @@ public class PracticeFormPage extends PageObject {
     public void selectHobby(String hobby) {
         WebElement hobbyLabel = $("//label[contains(text(),'" + hobby + "')]");
         scrollToElement(hobbyLabel);
-        waitABit(300);
         clickWithJS(hobbyLabel);
     }
 
@@ -63,12 +62,10 @@ public class PracticeFormPage extends PageObject {
     public void clickSubmit() {
         WebElement button = $(submitButton);
         scrollToElement(button);
-        waitABit(500);
         clickWithJS(button);
     }
 
     public boolean isModalDisplayed() {
-        waitABit(1000);
         return $(modalContent).isVisible();
     }
 
@@ -81,14 +78,14 @@ public class PracticeFormPage extends PageObject {
     }
 
     public boolean hasRedBorder(String fieldId) {
-        waitABit(500);
+        waitABit(200);
         String borderColor = $(By.id(fieldId)).getCssValue("border-color");
         return borderColor.contains("220, 53, 69") ||
                 borderColor.contains("rgb(220, 53, 69)");
     }
 
     public boolean isModalNotDisplayed() {
-        waitABit(1000);
+        waitABit(600);
         return !$(modalContent).isCurrentlyVisible();
     }
 
@@ -100,13 +97,11 @@ public class PracticeFormPage extends PageObject {
     private void scrollToElement(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element);
-        waitABit(300);
     }
 
     private void scrollToTop() {
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollTo(0, 0);");
-        waitABit(500);
     }
 
     private void clickWithJS(WebElement element) {
