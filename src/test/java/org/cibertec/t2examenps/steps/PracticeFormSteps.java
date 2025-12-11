@@ -9,8 +9,6 @@ import net.serenitybdd.annotations.Managed;
 import org.cibertec.t2examenps.pages.PracticeFormPage;
 import org.openqa.selenium.WebDriver;
 
-import java.time.Duration;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PracticeFormSteps {
@@ -42,11 +40,6 @@ public class PracticeFormSteps {
 
     @And("el estudiante selecciona {string} como genero")
     public void elEstudianteSeleccionaComoGenero(String genero) {
-        practiceFormPage.selectGender(genero);
-    }
-
-    @And("el estudiante selecciona el género {string}")
-    public void elEstudianteSeleccionaElGenero(String genero) {
         practiceFormPage.selectGender(genero);
     }
 
